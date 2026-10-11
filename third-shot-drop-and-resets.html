@@ -108,12 +108,23 @@
   footer { text-align: center; color: var(--muted); font-size: .95rem; padding: 0 1.5rem 3rem; }
 
   a:focus-visible { outline: 3px solid var(--ball); outline-offset: 3px; }
+  .back-link {
+    display: inline-block;
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-size: .95rem; font-weight: 700;
+    color: var(--line); text-decoration: none;
+    border: 1px solid rgba(247,248,243,.4); border-radius: 999px;
+    padding: .35rem 1rem; margin-bottom: 1.25rem;
+    transition: background .15s ease;
+  }
+  .back-link:hover { background: rgba(247,248,243,.12); }
 </style>
 </head>
 <body>
 
 <header class="hero">
   <div class="hero-inner">
+    <a class="back-link" href="index.html">← All drills</a>
     <p class="meta">Pickleball skills · Inspired by pro player Cam Luhring</p>
     <h1>Leveling up your pickleball game: mastering the third shot drop and resets</h1>
     <p class="dek">To move past the 4.0 level, professional player Cam Luhring emphasizes refining two crucial areas of your game: the topspin forehand third shot drop and resets.</p>
