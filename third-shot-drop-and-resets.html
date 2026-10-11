@@ -48,7 +48,7 @@
   .court { display: block; width: 100%; height: auto; }
   .ball-path { stroke-dasharray: 6 8; }
   @media (prefers-reduced-motion: no-preference) {
-    .ball-path { animation: travel 2.4s ease-out .3s both; stroke-dashoffset: 400; }
+    .ball-path { animation: travel 2.4s ease-out .3s both; stroke-dashoffset: 600; }
     .ball { animation: land .6s ease-out 2.4s both; }
     @keyframes travel { to { stroke-dashoffset: 0; } }
     @keyframes land { from { opacity: 0; transform: scale(.3); } to { opacity: 1; transform: scale(1); } }
@@ -115,19 +115,39 @@
     <h1>Leveling up your pickleball game: mastering the third shot drop and resets</h1>
     <p class="dek">To move past the 4.0 level, professional player Cam Luhring emphasizes refining two crucial areas of your game: the topspin forehand third shot drop and resets.</p>
 
-    <!-- Court diagram: baseline at bottom, kitchen near the net at top -->
-    <svg class="court" viewBox="0 0 720 220" role="img" aria-label="Diagram of a ball arcing from the baseline and landing in the kitchen">
-      <rect x="0" y="0" width="720" height="220" fill="#1D4466"/>
-      <rect x="40" y="20" width="640" height="70" fill="#3F7D5C"/>
-      <line x1="40" y1="20" x2="680" y2="20" stroke="#F7F8F3" stroke-width="5"/>
-      <line x1="40" y1="90" x2="680" y2="90" stroke="#F7F8F3" stroke-width="3"/>
-      <line x1="40" y1="20" x2="40" y2="220" stroke="#F7F8F3" stroke-width="3"/>
-      <line x1="680" y1="20" x2="680" y2="220" stroke="#F7F8F3" stroke-width="3"/>
-      <line x1="360" y1="90" x2="360" y2="220" stroke="#F7F8F3" stroke-width="3"/>
-      <text x="56" y="45" fill="#F7F8F3" font-family="Bricolage Grotesque, sans-serif" font-size="15" opacity=".85">Kitchen</text>
-      <text x="56" y="14" fill="#BFD0DE" font-family="Bricolage Grotesque, sans-serif" font-size="13">Net</text>
-      <path class="ball-path" d="M250 210 Q 330 -40 430 62" fill="none" stroke="#D9EA4E" stroke-width="3" stroke-linecap="round"/>
-      <circle class="ball" cx="430" cy="62" r="10" fill="#D9EA4E"/>
+    <!-- Full court, top-down, to scale (44 ft x 20 ft, 7 ft kitchens).
+         Net in the middle with a kitchen on each side. The drop starts
+         at your baseline, crosses the net, and lands in the opponent's kitchen. -->
+    <svg class="court" viewBox="0 0 720 360" role="img" aria-label="Top-down pickleball court with a kitchen on each side of the net. A dotted line shows the ball travelling from your baseline, over the net, and landing in the opponent's kitchen.">
+      <rect x="0" y="0" width="720" height="360" fill="#1D4466"/>
+      <!-- Kitchens -->
+      <rect x="258" y="30" width="102" height="290" fill="#3F7D5C"/>
+      <rect x="360" y="30" width="102" height="290" fill="#3F7D5C"/>
+      <!-- Outer lines -->
+      <rect x="40" y="30" width="640" height="290" fill="none" stroke="#F7F8F3" stroke-width="3"/>
+      <!-- Kitchen lines -->
+      <line x1="258" y1="30" x2="258" y2="320" stroke="#F7F8F3" stroke-width="3"/>
+      <line x1="462" y1="30" x2="462" y2="320" stroke="#F7F8F3" stroke-width="3"/>
+      <!-- Centre lines in the service courts -->
+      <line x1="40" y1="175" x2="258" y2="175" stroke="#F7F8F3" stroke-width="3"/>
+      <line x1="462" y1="175" x2="680" y2="175" stroke="#F7F8F3" stroke-width="3"/>
+      <!-- Net -->
+      <line x1="360" y1="16" x2="360" y2="334" stroke="#F7F8F3" stroke-width="6"/>
+      <line x1="360" y1="16" x2="360" y2="334" stroke="#142F48" stroke-width="2" stroke-dasharray="3 3"/>
+      <!-- Labels -->
+      <g font-family="Bricolage Grotesque, sans-serif" font-size="14">
+        <text x="360" y="11" text-anchor="middle" fill="#BFD0DE">Net</text>
+        <text x="309" y="288" text-anchor="middle" fill="#F7F8F3">Your</text>
+        <text x="309" y="306" text-anchor="middle" fill="#F7F8F3">kitchen</text>
+        <text x="411" y="288" text-anchor="middle" fill="#F7F8F3">Opponent's</text>
+        <text x="411" y="306" text-anchor="middle" fill="#F7F8F3">kitchen</text>
+        <text x="44" y="352" fill="#BFD0DE">Your baseline</text>
+        <text x="676" y="352" text-anchor="end" fill="#BFD0DE">Opponent's baseline</text>
+      </g>
+      <!-- Ball path: your baseline → over the net → opponent's kitchen -->
+      <circle cx="70" cy="262" r="5" fill="#D9EA4E" opacity=".6"/>
+      <path class="ball-path" d="M70 262 Q 240 40 418 128" fill="none" stroke="#D9EA4E" stroke-width="3" stroke-linecap="round"/>
+      <circle class="ball" cx="418" cy="128" r="10" fill="#D9EA4E"/>
     </svg>
   </div>
 </header>
